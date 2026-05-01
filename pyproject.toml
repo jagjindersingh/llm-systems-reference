@@ -1,7 +1,17 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-systems-reference"
+version = "0.1.0"
+description = "Production patterns for LLM systems"
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
 select = ["E", "F", "W", "I"]
+ignore = ["E203"]
 
 [tool.black]
 line-length = 100
@@ -9,4 +19,9 @@ target-version = ["py311"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-v"
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+ignore_missing_imports = true
